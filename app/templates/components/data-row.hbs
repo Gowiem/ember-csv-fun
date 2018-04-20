@@ -1,4 +1,4 @@
 <th>{{headColumn}}</th>
 {{#each restColumns as |column index|}}
-  <td>{{column}}</td>
+  {{data-column data=column columnNumber=index columnClicked=(action columnClicked)}}
 {{/each}}

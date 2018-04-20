@@ -8,7 +8,7 @@
   </thead>
   <tbody>
     {{#each dataRows as |row index|}}
-      {{data-row data=row rowNumber=index}}
+      {{data-row data=row rowNumber=index columnClicked=(action 'columnClicked')}}
     {{/each}}
   </tbody>
 </table>

@@ -1,6 +1,11 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 
+// Attrs
+// data <String> - The CSV row to display
+// rowNumber <Integer> - The index of this row in the table
+// Actions:
+// columnClicked
 export default Component.extend({
   tagName: 'tr',
   columns: computed('data', function() {
