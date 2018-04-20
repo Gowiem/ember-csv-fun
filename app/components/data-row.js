@@ -8,17 +8,14 @@ import { computed } from '@ember/object';
 // columnClicked
 export default Component.extend({
   tagName: 'tr',
-  columns: computed('data', function() {
-    return this.get('data').split(',');
-  }),
-  headColumn: computed('columns', function() {
-    return this.get('columns.firstObject') || 'Missing columns.';
+  headColumn: computed('data', function() {
+    return this.get('data.firstObject') || 'Missing columns.';
   }),
 
   // TODO: This could be abstracted to an Ember.computed macro for use with DataTable#dataRows
   // There is also likely a slice macro in Ember Awesome Macros.
-  restColumns: computed('columns', function() {
-    const columns = this.get('columns');
+  restColumns: computed('data', function() {
+    const columns = this.get('data');
     // Slice off our header column
     return columns.slice(1, columns.get('length'));
   })

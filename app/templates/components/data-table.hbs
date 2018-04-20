@@ -1,14 +1,18 @@
-<table class="table">
-  <thead>
-    <tr>
-      {{#each headers as |header|}}
-        <th>{{header}}</th>
+{{#if data}}
+  <table class="table">
+    <thead>
+      <tr>
+        {{#each headers as |header index|}}
+          {{data-header-column data=header columnNumber=index headerColumnClicked=(action 'headerColumnClicked')}}
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each sortedDataRows as |row index|}}
+        {{data-row data=row rowNumber=index columnClicked=(action 'columnClicked')}}
       {{/each}}
-    </tr>
-  </thead>
-  <tbody>
-    {{#each dataRows as |row index|}}
-      {{data-row data=row rowNumber=index columnClicked=(action 'columnClicked')}}
-    {{/each}}
-  </tbody>
-</table>
+    </tbody>
+  </table>
+{{else}}
+  <h2>Oops, couldn't find the data for the table. Where'd it go?</h2>
+{{/if}}
