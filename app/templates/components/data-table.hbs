@@ -1,1 +1,14 @@
-{{yield}}
+<table class="table">
+  <thead>
+    <tr>
+      {{#each headers as |header|}}
+        <th>{{header}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each dataRows as |row index|}}
+      {{data-row data=row rowNumber=index}}
+    {{/each}}
+  </tbody>
+</table>
